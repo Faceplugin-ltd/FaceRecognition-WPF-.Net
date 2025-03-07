@@ -1,0 +1,51 @@
+7767517
+49 54
+Input                    input                    0 1 input
+Split                    splitncnn_input0         1 2 input input_splitncnn_0 input_splitncnn_1
+Convolution              Conv_0                   1 1 input_splitncnn_1 173 0=8 1=3 4=1 5=1 6=216 9=1
+Convolution              Conv_2                   1 1 173 176 0=8 1=3 4=1 5=1 6=576 9=1
+Split                    splitncnn_0              1 2 176 176_splitncnn_0 176_splitncnn_1
+Pooling                  MaxPool_4                1 1 176_splitncnn_1 177 1=2 2=2 5=1
+Convolution              Conv_5                   1 1 177 180 0=16 1=3 4=1 5=1 6=1152 9=1
+Split                    splitncnn_1              1 2 180 180_splitncnn_0 180_splitncnn_1
+Pooling                  MaxPool_7                1 1 180_splitncnn_1 181 1=2 2=2 5=1
+Convolution              Conv_8                   1 1 181 184 0=32 1=3 4=1 5=1 6=4608 9=1
+Split                    splitncnn_2              1 2 184 184_splitncnn_0 184_splitncnn_1
+Pooling                  MaxPool_10               1 1 184_splitncnn_1 185 1=2 2=2 5=1
+Convolution              Conv_11                  1 1 185 188 0=64 1=3 4=1 5=1 6=18432 9=1
+Split                    splitncnn_3              1 2 188 188_splitncnn_0 188_splitncnn_1
+Pooling                  MaxPool_13               1 1 188_splitncnn_1 189 1=2 2=2 5=1
+Convolution              Conv_14                  1 1 189 192 0=64 1=3 4=1 5=1 6=36864 9=1
+Interp                   Resize_17                1 1 192 197 0=2 1=2.000000e+00 2=2.000000e+00
+Concat                   Concat_80                2 1 188_splitncnn_0 197 263
+Convolution              Conv_81                  1 1 263 266 0=32 1=3 4=1 5=1 6=36864 9=1
+Interp                   Resize_84                1 1 266 271 0=2 1=2.000000e+00 2=2.000000e+00
+Concat                   Concat_147               2 1 184_splitncnn_0 271 337
+Convolution              Conv_148                 1 1 337 340 0=16 1=3 4=1 5=1 6=9216 9=1
+Interp                   Resize_151               1 1 340 345 0=2 1=2.000000e+00 2=2.000000e+00
+Concat                   Concat_214               2 1 180_splitncnn_0 345 411
+Convolution              Conv_215                 1 1 411 414 0=8 1=3 4=1 5=1 6=2304 9=1
+Interp                   Resize_218               1 1 414 419 0=2 1=2.000000e+00 2=2.000000e+00
+Concat                   Concat_281               2 1 176_splitncnn_0 419 485
+Convolution              Conv_282                 1 1 485 488 0=8 1=3 4=1 5=1 6=1152 9=1
+Convolution              Conv_284                 1 1 488 output 0=3 1=1 5=1 6=24 9=1
+BinaryOp                 Add_286                  2 1 input_splitncnn_0 output 491
+Convolution              Conv_287                 1 1 491 496 0=16 1=3 3=2 4=1 5=1 6=432 9=3 -23310=2,0.000000e+00,6.000000e+00
+ConvolutionDepthWise     Conv_291                 1 1 496 501 0=16 1=3 4=1 5=1 6=144 7=16 9=3 -23310=2,0.000000e+00,6.000000e+00
+Convolution              Conv_295                 1 1 501 592 0=8 1=1 5=1 6=128
+Convolution              Conv_296                 1 1 592 508 0=32 1=1 5=1 6=256 9=3 -23310=2,0.000000e+00,6.000000e+00
+ConvolutionDepthWise     Conv_300                 1 1 508 513 0=32 1=3 3=2 4=1 5=1 6=288 7=32 9=3 -23310=2,0.000000e+00,6.000000e+00
+Convolution              Conv_304                 1 1 513 601 0=16 1=1 5=1 6=512
+Convolution              Conv_305                 1 1 601 520 0=48 1=1 5=1 6=768 9=3 -23310=2,0.000000e+00,6.000000e+00
+ConvolutionDepthWise     Conv_309                 1 1 520 525 0=48 1=3 3=2 4=1 5=1 6=432 7=48 9=3 -23310=2,0.000000e+00,6.000000e+00
+Convolution              Conv_313                 1 1 525 610 0=24 1=1 5=1 6=1152
+Convolution              Conv_314                 1 1 610 532 0=96 1=1 5=1 6=2304 9=3 -23310=2,0.000000e+00,6.000000e+00
+ConvolutionDepthWise     Conv_318                 1 1 532 537 0=96 1=3 4=1 5=1 6=864 7=96 9=3 -23310=2,0.000000e+00,6.000000e+00
+Convolution              Conv_322                 1 1 537 619 0=48 1=1 5=1 6=4608
+Convolution              Conv_323                 1 1 619 544 0=120 1=1 5=1 6=5760 9=3 -23310=2,0.000000e+00,6.000000e+00
+ConvolutionDepthWise     Conv_327                 1 1 544 549 0=120 1=3 3=2 4=1 5=1 6=1080 7=120 9=3 -23310=2,0.000000e+00,6.000000e+00
+Convolution              Conv_331                 1 1 549 628 0=96 1=1 5=1 6=11520
+ConvolutionDepthWise     Conv_332                 1 1 628 631 0=96 1=8 5=1 6=6144 7=96
+Flatten                  Flatten_333              1 1 631 554
+InnerProduct             Gemm_334                 1 1 554 555 0=2 1=1 2=192
+Softmax                  softmax                  1 1 555 softmax 0=0
